@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from os import getenv
 
 bot = commands.Bot(command_prefix = "-", description = "Bot by Vic")
 
@@ -98,5 +99,5 @@ async def f_Me01(ctx):
         await ctx.send(embed=embed)
 
 
-bot.run("OTUwNDY1NzUxNzI5NDQyODI2.YiZUNg.BiiNyi5nSzsQAHK5vXoERu38zPQ")
+bot.run(getenv('TOKEN'))
 
