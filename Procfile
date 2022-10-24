@@ -1,1 +1,1 @@
-worker: python3 HeroBot.py
+worker: python3 HeroBot2.py
