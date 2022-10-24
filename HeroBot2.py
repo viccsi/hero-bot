@@ -4,6 +4,7 @@ from pymongo import MongoClient
 from random import *
 import urllib.parse
 from discord.ext import commands
+from os import getenv
 
 bot = commands.Bot(command_prefix = "-", description = "Bot by Vic")
 
@@ -503,5 +504,5 @@ async def fight(ctx):
             print("Tie")
     
 
-bot.run("OTUwNDY1NzUxNzI5NDQyODI2.Gd1BM3.AmbXGafbAekIk3H1qB2uWKd__7GLNkTn8Zbjfo")
+bot.run(getenv('TOKEN'))
 
