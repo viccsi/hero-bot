@@ -7,11 +7,36 @@ from discord.ext import commands
 from os import getenv
 
 bot = commands.Bot(command_prefix = "-", description = "Bot by Vic")
+global collection
+global mango_url
+global cluster
+global db
+mango_url = "mongodb+srv://Vicsi:RafaVic1!@cluster0.2ohdo.mongodb.net/?retryWrites=true&w=majority"
+cluster = MongoClient(mango_url)
+db = cluster["HeroData"]
+collection = db["new"]
 
 @bot.event
 async def on_ready():
     print("Ready !")
 
+#CONNECT
+@bot.command()
+async def start(ctx):
+   global user_id
+   global author_id
+   author_id = ctx.author.id
+   user_id = {"_id": author_id}
+   if ctx.author == bot.user:
+      return
+   if ctx.author.bot:
+      return
+   user_info = {"_id": author_id, "money": 0, "exp": 0, "ami": 0, "c_f": 0, "c_v": 0, "c_s": 0, "c_p":0, "c_c":0}
+   collection.insert_one(user_info)
+   await ctx.channel.send("👍 Your account have been created !")
+@start.error
+async def command_start_error(ctx, error):
+   await ctx.channel.send("⚠️ Your account have already been created !")
 
 #COMMANDS   
 @bot.command()
