@@ -31,7 +31,7 @@ async def start(ctx):
       return
    if ctx.author.bot:
       return
-   user_info = {"_id": author_id, "money": 0, "exp": 0, "ami": 0, "c_f": 0, "c_v": 0, "c_s": 0, "c_p":0, "c_c":0}
+   user_info = {"_id": author_id, "money": 0, "exp": 0, "ami": 0, "c_f": 0, "c_v": 0, "c_s": 0, "c_p":0, "c_c":0, "alter":"None", "capa":"None"}
    collection.insert_one(user_info)
    await ctx.channel.send("👍 Your account have been created !")
 @start.error
@@ -43,12 +43,53 @@ async def command_start_error(ctx, error):
 async def commands(ctx):
     embed=discord.Embed(title=" ━━━━━━━━━━━━━━━━━━━━━", color=0x636363)
     embed.set_author(name="COMMANDS ⚙️")
-    embed.add_field(name="-begin", value="Pour commencer l'aventure!", inline=False)
-    embed.add_field(name="-profil", value="Pour voir votre profil `-profil[numéro]`", inline=False)
+    embed.add_field(name="-start", value="Pour commencer l'aventure!", inline=False)
+    embed.add_field(name="-profil", value="Pour voir votre profil", inline=False)
     embed.add_field(name="-top", value="Pour voir le classement des meilleurs héros", inline=True)
     await ctx.send(embed=embed)
     
-#PROFILS    
+#PROFILS
+@bot.command()
+async def profil(ctx, member:discord.Member=None):
+    if member == None:
+        author_id = ctx.author.id
+        user_id = {"_id": author_id}
+        name = await bot.fetch_user(author_id)
+    else:
+        author_id = member.id
+        user_id = {"_id": author_id}
+        name=member
+    exp = collection.find(user_id)
+    for alter in exp:
+        cur_alter = alter["alter"] 
+    exp = collection.find(user_id)
+    for idol in exp:
+        cur_idol = idol["idol"]
+    for ami in exp:
+        cur_ami = ami["ami"]
+    exp = collection.find(user_id)
+    for capa in exp:
+        cur_capa = capa["capa"]
+    exp = collection.find(user_id)
+    for c_c in exp:
+        cur_c_c = c_c["c_c"]
+    for c_s in exp:
+        cur_c_s = c_s["c_s"]
+    for c_f in exp:
+        cur_c_f = c_f["c_f"]
+    for c_v in exp:
+        cur_c_v = c_v["c_v"]
+    for c_p in exp:
+        cur_c_p = c_p["c_p"] 
+    embed=discord.Embed(title=" ━━━━━━━━━━━━━━━━━━━━━", color=0x3c42fb)
+    embed.set_author(name="PROFIL " f"{name}" " 👤")
+    embed.add_field(name="Alter", value=f"{cur_alter}", inline=False)
+    embed.add_field(name="Idole", value=f"{cur_idol}", inline=False)
+    embed.add_field(name="Expérience", value="Level 1 -> f"{cur_exp}"" /5🔅", inline=False)
+    embed.add_field(name="Amitié", value=f"{cur_ami" "💫", inline=True)
+    embed.add_field(name="Capacités", value=f"{cur_c_f}" " ⭐ Force\n" f"{cur_c_v}" " ⭐ Vitesse\n" f"{cur_c_s}" " ⭐ Stratégie\n" f"{cur_c_p}" " ⭐ Pouvoir\n" f"{cur_c_c}" " ⭐ Courage", inline=False)
+    embed.add_field(name="Techniques spéciales", value=f"{cur_capa}", inline=True)
+    await ctx.send(embed=embed)   
 @bot.command()
 async def profil1(ctx):
     embed=discord.Embed(title="━━━━━━━━━━━━━━━━━━━━━━━", color=0x3c42fb)
