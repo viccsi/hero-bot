@@ -62,11 +62,13 @@ async def profil(ctx, member:discord.Member=None):
     exp = collection.find(user_id)
     for alter in exp:
         cur_alter = alter["alter"] 
+    exp = collection.find(user_id)
     for xp in exp:
         cur_xp = xp["xp"] 
     exp = collection.find(user_id)
     for idol in exp:
         cur_idol = idol["idol"]
+    exp = collection.find(user_id)
     for ami in exp:
         cur_ami = ami["ami"]
     exp = collection.find(user_id)
@@ -75,12 +77,16 @@ async def profil(ctx, member:discord.Member=None):
     exp = collection.find(user_id)
     for c_c in exp:
         cur_c_c = c_c["c_c"]
+    exp = collection.find(user_id)
     for c_s in exp:
         cur_c_s = c_s["c_s"]
+    exp = collection.find(user_id)
     for c_f in exp:
         cur_c_f = c_f["c_f"]
+    exp = collection.find(user_id)
     for c_v in exp:
         cur_c_v = c_v["c_v"]
+    exp = collection.find(user_id)
     for c_p in exp:
         cur_c_p = c_p["c_p"] 
     embed=discord.Embed(title=" ━━━━━━━━━━━━━━━━━━━━━", color=0x3c42fb)
