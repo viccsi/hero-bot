@@ -31,7 +31,7 @@ async def start(ctx):
       return
    if ctx.author.bot:
       return
-   user_info = {"_id": author_id, "money": 0, "exp": 0, "ami": 0, "c_f": 0, "c_v": 0, "c_s": 0, "c_p":0, "c_c":0, "alter":"None", "capa":"None"}
+   user_info = {"_id": author_id, "money": 0, "xp": 0, "ami": 0, "c_f": 0, "c_v": 0, "c_s": 0, "c_p":0, "c_c":0, "alter":"None", "capa":"None"}
    collection.insert_one(user_info)
    await ctx.channel.send("👍 Your account have been created !")
 @start.error
@@ -62,6 +62,8 @@ async def profil(ctx, member:discord.Member=None):
     exp = collection.find(user_id)
     for alter in exp:
         cur_alter = alter["alter"] 
+    for xp in exp:
+        cur_xp = xp["xp"] 
     exp = collection.find(user_id)
     for idol in exp:
         cur_idol = idol["idol"]
@@ -85,7 +87,7 @@ async def profil(ctx, member:discord.Member=None):
     embed.set_author(name="PROFIL " f"{name}" " 👤")
     embed.add_field(name="Alter", value=f"{cur_alter}", inline=False)
     embed.add_field(name="Idole", value=f"{cur_idol}", inline=False)
-    embed.add_field(name="Expérience", value="Level 1 -> f"{cur_exp}"" /5🔅", inline=False)
+    embed.add_field(name="Expérience", value="Level 1 -> f"{cur_xp}"" /5🔅", inline=False)
     embed.add_field(name="Amitié", value=f"{cur_ami" "💫", inline=True)
     embed.add_field(name="Capacités", value=f"{cur_c_f}" " ⭐ Force\n" f"{cur_c_v}" " ⭐ Vitesse\n" f"{cur_c_s}" " ⭐ Stratégie\n" f"{cur_c_p}" " ⭐ Pouvoir\n" f"{cur_c_c}" " ⭐ Courage", inline=False)
     embed.add_field(name="Techniques spéciales", value=f"{cur_capa}", inline=True)
