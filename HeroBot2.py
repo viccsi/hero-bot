@@ -178,6 +178,20 @@ async def maj(ctx):
     embed.add_field(name="-top", value="Pour voir le nouveau classement des meilleurs héros", inline=True)
     await ctx.send(embed=embed)
 
+#MONEY
+#PROFILS
+@bot.command()
+async def money(ctx):
+    exp = collection.find(user_id)
+    for alter in exp:
+        cur_money = money["money"] 
+    embed=discord.Embed(title=" ━━━━━━━━━━━━━━━━━", color=0x636363)
+    embed.set_author(name="MONEY " f"{name}" " 💸")
+    embed.add_field(name="You have:", value=f"{cur_money}" " 💰", inline=False)
+    await ctx.send(embed=embed)      
+    
+    
+    
 #COMBATS
 a=0
 b=0
