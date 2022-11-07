@@ -93,7 +93,7 @@ async def profil(ctx, member:discord.Member=None):
     embed.set_author(name="PROFIL " f"{name}" " 👤")
     embed.add_field(name="Alter", value=f"{cur_alter}", inline=False)
     embed.add_field(name="Idole", value=f"{cur_idol}", inline=True)
-    embed.add_field(name="Expérience", value="Level 1 -> " f"{cur_xp}" "/5 🔅", inline=True)
+    embed.add_field(name="Expérience", value="Level 1 -> " f"{cur_xp}" "/50 🔅", inline=True)
     embed.add_field(name="Amitié", value=f"{cur_ami}" "💫", inline=True)
     embed.add_field(name="Capacités", value=f"{cur_c_f}" " ⭐ Force\n" f"{cur_c_v}" " ⭐ Vitesse\n" f"{cur_c_s}" " ⭐ Stratégie\n" f"{cur_c_p}" " ⭐ Pouvoir\n" f"{cur_c_c}" " ⭐ Courage", inline=False)
     embed.add_field(name="Techniques spéciales", value=f"{cur_capa}", inline=True)
