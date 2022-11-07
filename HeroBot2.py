@@ -45,6 +45,7 @@ async def commands(ctx):
     embed.set_author(name="COMMANDS ⚙️")
     embed.add_field(name="-start", value="Pour commencer l'aventure!", inline=False)
     embed.add_field(name="-profil", value="Pour voir votre profil", inline=False)
+    embed.add_field(name="-money", value="Pour savoir combien d'argent il vous reste", inline=False)
     embed.add_field(name="-top", value="Pour voir le classement des meilleurs héros", inline=True)
     await ctx.send(embed=embed)
     
