@@ -183,6 +183,10 @@ async def maj(ctx):
 #PROFILS
 @bot.command()
 async def money(ctx):
+    global user_id
+    global author_id
+    author_id = ctx.author.id
+    user_id = {"_id": author_id}
     exp = collection.find(user_id)
     for alter in exp:
         cur_money = money["money"] 
