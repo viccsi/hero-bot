@@ -191,7 +191,7 @@ async def money(ctx):
     for money in exp:
         cur_money = money["money"] 
     embed=discord.Embed(title=" ━━━━━━━━━━━━━━━━━", color=0x636363)
-    embed.set_author(name="MONEY " f"{name}" " 💸")
+    embed.set_author(name="MONEY 💸")
     embed.add_field(name="You have:", value=f"{cur_money}" " 💰", inline=False)
     await ctx.send(embed=embed)      
     
