@@ -188,7 +188,7 @@ async def money(ctx):
     author_id = ctx.author.id
     user_id = {"_id": author_id}
     exp = collection.find(user_id)
-    for alter in exp:
+    for money in exp:
         cur_money = money["money"] 
     embed=discord.Embed(title=" ━━━━━━━━━━━━━━━━━", color=0x636363)
     embed.set_author(name="MONEY " f"{name}" " 💸")
