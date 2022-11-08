@@ -190,7 +190,7 @@ async def money(ctx):
     exp = collection.find(user_id)
     for money in exp:
         cur_money = money["money"] 
-    embed=discord.Embed(title=" ━━━━━━━━━━━━━━━━━", color=0x636363)
+    embed=discord.Embed(title=" ━━━━━━━━", color=0x3c42fb)
     embed.set_author(name="MONEY 💸")
     embed.add_field(name="You have:", value=f"{cur_money}" " 💰", inline=False)
     await ctx.send(embed=embed)      
